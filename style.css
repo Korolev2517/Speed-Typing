@@ -1,0 +1,29 @@
+.container {
+    margin: 50px auto;
+    padding: 5px;
+    width: 500px;
+    height: 600px;
+}
+.text-content {
+    height: 300px;
+    width: 480px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    padding: 10px;
+}
+/* !не забыть исправить автовыделение textarea! */
+.input-text {
+    height: 300px;
+    width: 480px;
+    padding: 10px;
+    /*border: 1px solid black;*/
+    resize: none;
+}
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+    text-decoration: underline;
+}
