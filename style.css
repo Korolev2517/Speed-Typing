@@ -1,11 +1,11 @@
 .container {
-    margin: 50px auto;
+    margin: 100px auto;
     padding: 5px;
     width: 500px;
     height: 600px;
 }
 .text-content {
-    height: 300px;
+    height: 200px;
     width: 480px;
     border-top: 1px solid black;
     border-right: 1px solid black;
@@ -14,7 +14,7 @@
 }
 /* !не забыть исправить автовыделение textarea! */
 .input-text {
-    height: 300px;
+    height: 200px;
     width: 480px;
     padding: 10px;
     /*border: 1px solid black;*/
@@ -26,4 +26,19 @@
 .incorrect {
     color: red;
     text-decoration: underline;
+}
+.data {
+    display: flex;
+}
+.time{
+    margin: 0 0 10px 10px;
+    width: 100px;
+    height: 30px;
+    border: 2px solid green;
+}
+.error {
+    margin: 0 0 10px 10px;
+    width: 100px;
+    height: 30px;
+    border: 2px solid red;
 }
