@@ -26,7 +26,7 @@ async function getNextRandomText() {
     textContent.appendChild(elementSpan);
   })
   inputText.value = null;
-  previousInput = 0; // сброс предъыдущей длинны ввода при получении нового текста
+  previousInput = 0; // сброс предыдущей длинны ввода при получении нового текста
 }
 getNextRandomText();
 
@@ -49,14 +49,39 @@ inputText.addEventListener('input', () => {
       element.classList.remove('correct');
       element.classList.add('incorrect');
       correct = false;
-      incorrect = true; // помечаем что был введен неправильный символ
+      if (inputText.value.length > previousInput && inputText.value.length !== 0) {
+        incorrect = true; // помечаем что был введен неправильный символ
+      }
     }
   })
-  if (incorrect && inputText.value.length > previousInput) { // если был введен неправильный символ, то увеличиваем счетчик ошибок
+  if (incorrect) { // если был введен неправильный символ, то увеличиваем счетчик ошибок
     error.innerHTML++;
   }
   previousInput = inputText.value.length; // обновление значения предыдущей длинны ввода
   if (textContentArray.length == inputTextArray.length) getNextRandomText()
 })
 
+let count = 0;
+let startTime = null;
 
+function startTimer() {
+  if (startTime === null) {
+    startTime = new Date();
+    setInterval(showCountPerMinute, 60000)
+  }
+}
+
+function countCharacters() {
+  inputText.addEventListener('keydown', async () => {
+    startTimer();
+    count++;
+  })
+}
+function showCountPerMinute() {
+  let now = new Date();
+  let timeDifference = (now - startTime) / 60000;
+  let countPerMinute = Math.floor(count / timeDifference);
+  time.innerHTML = countPerMinute;
+  count = 0;
+}
+countCharacters();
